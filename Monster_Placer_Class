@@ -34,7 +34,6 @@ public class AdvMobsPlacer extends Item
     {
         super(par1);
         this.setHasSubtypes(true);
-        this.setCreativeTab(CreativeTabs.tabMisc);
     }
 
     public String getItemDisplayName(ItemStack par1ItemStack)
