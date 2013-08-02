@@ -1,0 +1,23 @@
+package advmobs;
+
+import advitems.Advitems;
+import net.minecraft.creativetab.CreativeTabs;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class AdvMobsTab extends CreativeTabs {
+
+  public AdvMobsTab(int par1, String par2Str) {
+		super(par1, par2Str);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public int getTabIconItemIndex()
+	{
+		return Advmobs.iconegg.itemID;
+	}
+	
+	public String getTranslatedTabLabel(){
+		return "Adventure Mobs";
+	}
+}
