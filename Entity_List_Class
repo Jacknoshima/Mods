@@ -262,6 +262,5 @@ public class AdvEntityList
         addMapping(EntityLiving.class, "Mob", 48);
         addMapping(EntityMob.class, "Monster", 49);
   	addMapping(EntityStatVillager.class, "StatVillager", 401, 0xFFCCDD, 0x1900FF);
-		addMapping(EntityStatGuard.class, "StatGuard", 402, 0xD6D6D6, 0x8F8E91);
     }
 }
