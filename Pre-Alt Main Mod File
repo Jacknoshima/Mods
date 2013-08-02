@@ -1,0 +1,54 @@
+package advmobs;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.item.Item;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+
+@Mod(modid = "advmobs", name = "Adventure Mobs", version = "1.0" )
+@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+
+public class Advmobs {
+  
+	public static final String modid = "jnosh_advmobs";
+	
+	public static CreativeTabs Advmobstab = new AdvMobsTab(CreativeTabs.getNextID(), "Advmobstab");
+	
+  public static int getUniqueID(){
+		int EntityId = 400;
+		do{
+			EntityId++;
+		  } while(EntityList.getStringFromID(EntityId) != null);
+    return EntityId;
+	}
+	
+	public static void EntityEgg(Class<? extends Entity > entity, int primaryColor, int secondaryColor){
+		int id = getUniqueID();
+		EntityList.IDtoClassMapping.put(id, entity);
+		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
+	}
+	
+	@EventHandler
+	public void load(FMLInitializationEvent event){
+		
+		LanguageRegistry.addName(iconegg, "Icon Egg");
+		
+		EntityRegistry.registerModEntity(EntityStatVillager.class, "StatVillager", 1, this, 41, 3, true);
+		EntityRegistry.addSpawn(EntityStatVillager.class, 15, 2, 4, EnumCreatureType.creature);
+		LanguageRegistry.instance().addStringLocalization("entity.StatVillager.name", "Stationary Villager");
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityStatVillager.class, new RenderStatVillager());
+		
+		EntityEgg(EntityStatVillager.class, 0xFFCCDD, 0x1900FF);
+		EntityEgg(EntityStatGuard.class, 0xD6D6D6, 0x8F8E91);
+	}
+}
