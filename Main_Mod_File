@@ -54,14 +54,8 @@ public class Advmobs {
 		EntityRegistry.addSpawn(EntityStatVillager.class, 15, 2, 4, EnumCreatureType.creature);
 		LanguageRegistry.instance().addStringLocalization("entity.StatVillager.name", "Stationary Villager");
 		
-		EntityRegistry.registerModEntity(EntityStatGuard.class, "StatGuard", 2, this, 41, 3, true);
-		EntityRegistry.addSpawn(EntityStatGuard.class, 15, 2, 4, EnumCreatureType.creature);
-		LanguageRegistry.instance().addStringLocalization("entity.StatGuard.name", "Stationary Guard");
-		
 		RenderingRegistry.registerEntityRenderingHandler(EntityStatVillager.class, new RenderStatVillager());
-		RenderingRegistry.registerEntityRenderingHandler(EntityStatGuard.class, new RenderStatGuard());
 		
 	//	EntityEgg(EntityStatVillager.class, 0xFFCCDD, 0x1900FF);
-	//	EntityEgg(EntityStatGuard.class, 0xD6D6D6, 0x8F8E91);
 	}
 }
