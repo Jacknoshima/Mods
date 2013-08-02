@@ -227,6 +227,6 @@ public class AdvMobsPlacer extends Item
     public void registerIcons(IconRegister par1IconRegister)
     {
         super.registerIcons(par1IconRegister);
-        this.theIcon = par1IconRegister.registerIcon(Advmobs.modid + ":" + (this.getUnlocalizedName().substring(5)) + "_overlay");
+        this.theIcon = par1IconRegister.registerIcon(this.func_111208_A() + "_overlay");
     }
 }
